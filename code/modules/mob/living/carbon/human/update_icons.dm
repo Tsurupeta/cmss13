@@ -691,7 +691,10 @@ Applied by gun suicide and high impact bullet executions, removed by rejuvenate,
 		return
 	if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD && hud_used.ui_datum)
 		client.add_to_screen(r_hand)
-		r_hand.screen_loc = hud_used.ui_datum.ui_item_rhand
+		if(hud_used.r_hand_hud_object.icon_state == "hand_double")
+			r_hand.screen_loc = hud_used.ui_datum.ui_item_middle
+		else
+			r_hand.screen_loc = hud_used.ui_datum.ui_item_rhand
 
 	var/image/I = r_hand.get_mob_overlay(src, WEAR_R_HAND)
 	I.layer = -R_HAND_LAYER
@@ -706,7 +709,10 @@ Applied by gun suicide and high impact bullet executions, removed by rejuvenate,
 		return
 	if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD && hud_used.ui_datum)
 		client.add_to_screen(l_hand)
-		l_hand.screen_loc = hud_used.ui_datum.ui_item_lhand
+		if(hud_used.l_hand_hud_object.icon_state == "hand_double")
+			l_hand.screen_loc = hud_used.ui_datum.ui_item_middle
+		else
+			l_hand.screen_loc = hud_used.ui_datum.ui_item_lhand
 
 	var/image/I = l_hand.get_mob_overlay(src, WEAR_L_HAND)
 	I.layer = -L_HAND_LAYER

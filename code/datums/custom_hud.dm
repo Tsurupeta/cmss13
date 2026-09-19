@@ -6,6 +6,7 @@
 	var/ui_lhand = "hud:2:44,7:28"
 	var/ui_item_lhand = "hud:2:48,7:32"
 	var/ui_item_rhand = "hud:1:49,7:32"
+	var/ui_item_middle = "hud:2:24,7:34"
 
 	//Inventory
 	var/ui_shoes = "hud:1:64,7:-128"

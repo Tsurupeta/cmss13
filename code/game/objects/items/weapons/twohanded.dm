@@ -66,13 +66,13 @@
 		var/obj/item/weapon/gun/gun_item = src
 		if(gun_item.large_hud_slot)
 			offhand.icon_state = ""
-			gun_item.screen_loc = "hud:2:24,7:34"
+			gun_item.screen_loc = user.hud_used.ui_datum.ui_item_middle
 			if(!user.hand)
 				user.hud_used.r_hand_hud_object.icon_state = "hand_double"
-				user.hud_used.r_hand_hud_object.layer = ABOVE_HUD_LAYER
+				user.hud_used.r_hand_hud_object.layer = HUD_UPPER_LAYER
 			else
 				user.hud_used.l_hand_hud_object.icon_state = "hand_double"
-				user.hud_used.l_hand_hud_object.screen_loc = "hud:1:44,7:28"
+				user.hud_used.l_hand_hud_object.screen_loc = user.hud_used.ui_datum.ui_rhand
 	offhand.name = "[item_name] - offhand"
 	offhand.desc = "Your second grip on the [item_name]."
 	offhand.flags_item |= WIELDED
@@ -92,11 +92,9 @@
 			if(!user.hand)
 				user.hud_used.r_hand_hud_object.icon_state = "hand_active"
 				user.hud_used.r_hand_hud_object.layer = HUD_LAYER
-				gun_item.screen_loc = "hud:1:44,7:28"
 			else
-				user.hud_used.l_hand_hud_object.screen_loc = "hud:2:44,7:28"
+				user.hud_used.l_hand_hud_object.screen_loc = user.hud_used.ui_datum.ui_lhand
 				user.hud_used.l_hand_hud_object.icon_state = "hand_active"
-				gun_item.screen_loc = "hud:2:44,7:28"
 	if(istype(offhand))
 		offhand.unwield(user)
 	user.update_inv_l_hand(0)
